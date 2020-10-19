@@ -11,4 +11,6 @@ public interface GameLogic {
     void handleUpdate(float interval);
 
     void handleRender(Window window);
+
+    void handleCleanup();
 }
