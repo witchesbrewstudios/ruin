@@ -1,9 +1,8 @@
-import engine.interfaces.GameLogic;
 import engine.Window;
+import engine.interfaces.GameLogic;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_DOWN;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_UP;
-import static org.lwjgl.opengl.GL11.glViewport;
 
 public class GameLogicImpl implements GameLogic {
 
@@ -45,9 +44,12 @@ public class GameLogicImpl implements GameLogic {
 
     @Override
     public void handleRender(Window window) {
-        if (window.isResized()) {
-            glViewport(0, 0, window.getWidth(), window.getHeight());
+        window.setClearColor(color, color, color, 0.0f);
+        renderer.render(window);
+    }
 
-        }
+    @Override
+    public void handleCleanup() {
+        renderer.cleanup();
     }
 }
